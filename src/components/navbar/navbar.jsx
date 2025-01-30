@@ -1,35 +1,148 @@
-import React, { useState } from 'react';
-import './navbar.css';
-import logo1 from '../assets/logo1.png';
-import cart_icon from '../assets/cart_icon.png';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import './Navbar.css';
+import logo from '../assets/logo.png';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUserAuth } from '../../context/UserAuthContext';
+import { ShopContext } from '../../context/ShopContext';
+import { useContext } from 'react';
+import { 
+    FaUser, 
+    FaShoppingCart, 
+    FaBars, 
+    FaTimes, 
+    FaHome,
+    FaBaseballBall,
+    FaTshirt,
+    FaGripHorizontal,  // Using this for bats instead of FaCricket
+    FaSignOutAlt
+} from 'react-icons/fa';
+import { useCart } from '../../context/CartContext';
 
 const Navbar = () => {
-    const [menu,setMenu] = useState("shop");
+    const { user, logout } = useUserAuth();
+    const { getTotalCartItems } = useContext(ShopContext);
+    const { getCartCount } = useCart();
+    const cartCount = getCartCount();
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const navigate = useNavigate();
+    const menuRef = useRef(null);
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsMenuOpen(false);
+            }
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setShowDropdown(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    const handleNavigation = (path) => {
+        navigate(path);
+        setIsMenuOpen(false);  // Close menu after navigation
+    };
+
+    const handleLogout = async () => {
+        try {
+            await logout();
+            navigate('/');
+        } catch (error) {
+            console.error('Logout error:', error);
+        }
+    };
 
     return (
-    <div className='navbar'>
-      <div className="nav-logo">
-        <img src={logo1} alt='logo' />
-        <p>ricKart</p>
-      </div>
-      <ul className="nav-menu">
-      <li onClick={()=>{setMenu("Shop")}}><Link style={{ textDecoration  : 'none'}} to="/">Shop</Link>{menu==="Shop"?<hr/>:<></>}</li>
+        <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+            <div className="navbar-container">
+                {/* Logo */}
+                <Link to="/" className="logo">
+                    {/* <img src={logo} alt="CricKart" /> */}
+                    <span>CricKart</span>
+                </Link>
 
-        <li onClick={()=>{setMenu("Bats")}}><Link style={{ textDecoration  : 'none'}} to="/Bats">Bats</Link>{menu==="Bats"?<hr/>:<></>}</li>
-        <li onClick={()=>{setMenu("Balls")}}><Link  style={{ textDecoration  : 'none'}}  to="/Balls">Balls</Link>{menu==="Balls"?<hr/>:<></>}</li>
-        <li onClick={()=>{setMenu("Kits")}}><Link style={{ textDecoration  : 'none'}}  to="/Kits">Kits</Link>{menu==="Kits"?<hr/>:<></>}</li>
-      </ul>
+                {/* Right Section */}
+                <div className="nav-right">
+                    {user ? (
+                        <div className="user-menu" ref={dropdownRef}>
+                            <button 
+                                className="profile-button"
+                                onClick={() => setShowDropdown(!showDropdown)}
+                            >
+                                <FaUser />
+                            </button>
+                            {showDropdown && (
+                                <div className="dropdown-menu">
+                                    <Link to="/profile">Profile</Link>
+                                    <Link to="/orders">Orders</Link>
+                                    <button onClick={handleLogout}>
+                                        <FaSignOutAlt /> Logout
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <div className="auth-buttons">
+                            <Link to="/login" className="login-btn">Login</Link>
+                            <Link to="/signup" className="signup-btn">Sign Up</Link>
+                        </div>
+                    )}
 
-      <div className="nav-login-cart">
-        <Link to='/login'> 
-        <button>Login</button> </Link>
-        <Link to='/cart'>
-        <img src={cart_icon} alt='cart' /></Link>
-        <div className="nav-cart-count">0</div>
-      </div>
-    </div>
-  );
-}
+                    <Link to="/cart" className="nav-cart">
+                        <FaShoppingCart />
+                        {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+                    </Link>
 
-export default Navbar;  // Corrected export statement
+                    {/* Menu Button */}
+                    <button 
+                        className="menu-btn"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
+                        {isMenuOpen ? <FaTimes /> : <FaBars />}
+                    </button>
+                </div>
+            </div>
+
+            {/* Dropdown Menu */}
+            {isMenuOpen && (
+                <div className="menu-dropdown" ref={menuRef}>
+                    <div className="dropdown-content">
+                        <div className="dropdown-link" onClick={() => handleNavigation('/')}>
+                            <FaHome className="dropdown-icon" />
+                            <span>Home</span>
+                        </div>
+                        <div className="dropdown-link" onClick={() => handleNavigation('/bats')}>
+                            <FaGripHorizontal className="dropdown-icon" />
+                            <span>Bats</span>
+                        </div>
+                        <div className="dropdown-link" onClick={() => handleNavigation('/balls')}>
+                            <FaBaseballBall className="dropdown-icon" />
+                            <span>Balls</span>
+                        </div>
+                        <div className="dropdown-link" onClick={() => handleNavigation('/kits')}>
+                            <FaTshirt className="dropdown-icon" />
+                            <span>Kits</span>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </nav>
+    );
+};
+
+export default Navbar;

@@ -1,0 +1,187 @@
+/* Main Container */
+.loginsignup {
+    width: 100%;
+    min-height: 100vh; /* Ensure it covers the full viewport height */
+    background: url('https://images.unsplash.com/photo-1518917862551-8d1e5d154f0d?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyNjUyOXwwfDF8c2VhcmNofDQxfHxzdHVkaW8lMjBzY2VuZXxlbnwwfHx8fDE2NjU1OTI3MTY&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
+    background-size: cover; /* Cover the entire container */
+    position: relative; /* Ensure the pseudo-element is positioned relative to this container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    box-sizing: border-box; /* Include padding in width and height calculations */
+}
+
+/* Blur Effect Overlay */
+.loginsignup::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+    backdrop-filter: blur(10px); /* Blur effect */
+    z-index: -1; /* Ensure the overlay is behind the content */
+}
+
+/* Inner Container */
+.loginsignup-container {
+    width: 100%;
+    max-width: 580px; /* Max width for responsiveness */
+    height: auto;
+    background: white;
+    margin: auto;
+    padding: 40px 60px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center text */
+    position: relative; /* Ensure it is above the overlay */
+}
+
+/* Heading */
+.loginsignup-container h1 {
+    margin: 20px 0;
+    font-size: 32px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Input Fields */
+.loginsignup-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Gap between fields */
+    margin-top: 30px;
+}
+
+.loginsignup-fields input {
+    height: 55px;
+    width: 100%;
+    padding-left: 20px;
+    border: 1px solid #c9c9c9;
+    outline: none;
+    color: #333;
+    font-size: 18px;
+    border-radius: 5px; /* Rounded corners */
+    transition: border 0.3s ease; /* Smooth border transition */
+}
+
+/* Focus Effect for Inputs */
+.loginsignup-fields input:focus {
+    border-color: #000; /* Border color on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Shadow on focus */
+}
+
+/* Button Styles */
+.loginsignup-container button {
+    width: 100%;
+    max-width: 470px;
+    height: 55px;
+    color: white;
+    background: #000000;
+    margin-top: 30px;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+/* Button Hover Effect */
+.loginsignup-container button:hover {
+    background-color: #333; /* Darken button on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Additional Text (Already have an account) */
+.loginsignup-login {
+    margin-top: 20px;
+    color: #5c5c5c;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.loginsignup-login span {
+    color: #ff0000;
+    font-weight: 600;
+    cursor: pointer; /* Indicate clickability */
+}
+
+/* Checkbox and Agreement Text */
+.loginsignup-agree {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    gap: 15px; /* Gap between checkbox and text */
+    color: #5c5c5c;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    accent-color: #000; /* Custom checkbox color */
+}
+
+/* Responsive Styles */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+    .loginsignup-container {
+        padding: 30px 40px;
+    }
+
+    .loginsignup-fields input,
+    .loginsignup-container button {
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .loginsignup-container h1 {
+        font-size: 28px;
+    }
+
+    .loginsignup-login,
+    .loginsignup-agree {
+        font-size: 14px;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .loginsignup-container {
+        padding: 20px 20px;
+    }
+
+    .loginsignup-fields input,
+    .loginsignup-container button {
+        height: 45px;
+        font-size: 14px;
+    }
+
+    .loginsignup-container h1 {
+        font-size: 24px;
+    }
+
+    .loginsignup-login,
+    .loginsignup-agree {
+        font-size: 12px;
+    }
+}
+.back-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 40px;  /* Adjust this value to move the icon vertically */
+    left: 50px; /* Adjust this value to move the icon horizontally */
+    display: inline-block;
+}
+
+.back-icon svg {
+    color: #000; /* Set the color of the icon */
+    font-size: 24px; /* Adjust the size as needed */
+}
+

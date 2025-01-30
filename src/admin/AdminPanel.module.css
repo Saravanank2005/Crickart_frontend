@@ -1,0 +1,46 @@
+.adminContainer {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo span {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.logo small {
+  color: #6c757d;
+  margin-left: 0.5rem;
+}
+
+.mainContent {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+.contentArea {
+  flex: 1;
+  padding: 2rem;
+}
+
+.userProfile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+} 

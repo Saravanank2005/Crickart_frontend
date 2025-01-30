@@ -1,0 +1,175 @@
+.profile-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.profile-header {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background: #f0f2f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar svg {
+    font-size: 1.8rem;
+    color: #666;
+}
+
+.profile-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab.active {
+    background: #1976d2;
+    color: white;
+}
+
+.tab svg {
+    font-size: 1.2rem;
+}
+
+/* Orders List */
+.order-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.order-status {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.order-status.delivered {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.order-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-weight: bold;
+}
+
+/* Favorites Grid */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.favorite-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.favorite-card:hover {
+    transform: translateY(-2px);
+}
+
+.favorite-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.favorite-info {
+    padding: 1rem;
+}
+
+.favorite-info h3 {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.price {
+    color: #1976d2;
+    font-weight: bold;
+}
+
+.remove-favorite {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    background: #f44336;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.remove-favorite:hover {
+    background: #d32f2f;
+}
+
+@media (max-width: 768px) {
+    .profile-tabs {
+        flex-direction: column;
+    }
+
+    .favorites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+} 

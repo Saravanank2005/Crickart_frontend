@@ -1,0 +1,242 @@
+/* Enhanced Offers Section */
+
+/* Base Styles */
+.offers-container {
+    padding: 40px 0;
+    background: #f8f9fa;
+}
+
+.offers {
+    width: 85%;
+    min-height: 500px;
+    display: flex;
+    margin: auto;
+    background: linear-gradient(135deg, #0a1435 0%, #006aff 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.offers-left {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.offer-content {
+    max-width: 500px;
+}
+
+.special-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.offers-left h1 {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.offers-left p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
+
+.offer-features {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.offer-features li {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: #006aff;
+    padding: 16px 32px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.button:hover .arrow {
+    transform: translateX(5px);
+}
+
+.offers-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offers-right img {
+    max-width: 80%;
+    height: auto;
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}
+
+.offers-right:hover img {
+    transform: scale(1.15);
+}
+
+.discount-badge {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 100px;
+    height: 100px;
+    background: #ff3366;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.discount {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.off {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 51, 102, 0.4);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(255, 51, 102, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 51, 102, 0);
+    }
+}
+
+@media (max-width: 1280px) {
+    .offers {
+        width: 90%;
+    }
+    .offers-left h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .offers-left {
+        padding: 40px;
+    }
+    .offers-left h1 {
+        font-size: 36px;
+    }
+    .discount-badge {
+        width: 80px;
+        height: 80px;
+    }
+    .discount {
+        font-size: 24px;
+    }
+    .off {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .offers {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .offers-left {
+        text-align: center;
+    }
+    .offer-content {
+        margin: 0 auto;
+    }
+    .offer-features {
+        display: inline-block;
+        text-align: left;
+    }
+    .offers-right {
+        padding: 40px;
+    }
+    .discount-badge {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .offers-left {
+        padding: 30px 20px;
+    }
+    .offers-left h1 {
+        font-size: 28px;
+    }
+    .offers-left p {
+        font-size: 16px;
+    }
+    .button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+/* 
+Hover effect for scaling up the image */
+/* .offers-right img:hover {
+    transform: scale(1.1); /* Scale up the image by 10% on hover */
+
+

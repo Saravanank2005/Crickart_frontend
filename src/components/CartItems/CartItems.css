@@ -1,0 +1,171 @@
+/* Main Container */
+.cartitems {
+    margin: 100px 170px;
+}
+
+/* Separator Line */
+.cartitems hr {
+    height: 3px;
+    background: #e2e2e2;
+    border: 0;
+}
+
+/* Cart Items Header Format */
+.cartitems-format-main {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 75px;
+    padding: 20px 0px;
+    color: #454545;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Cart Items Details */
+.cartitems-format {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* Product Image */
+.carticon-product-icon {
+    height: 62px;
+    transition: transform 0.3s ease; /* Smooth scaling transition */
+}
+
+.carticon-product-icon:hover {
+    transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* Remove Icon */
+.cartitems-remove-icon {
+    width: 15px;
+    margin: 0 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transitions */
+}
+
+.cartitems-remove-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    filter: brightness(1.2); /* Brighten icon on hover */
+}
+
+/* Quantity Input */
+.cartitems-quantity {
+    width: 64px;
+    height: 50px;
+    border: 2px solid #ebebeb;
+    background: white;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+}
+
+.cartitems-quantity:focus {
+    border-color: #000; /* Darker border on focus */
+}
+
+/* Cart Bottom Section */
+.cartitems-down {
+    display: flex;
+    margin: 100px 0;
+}
+
+/* Cart Total Section */
+.cartitems-total {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 200px;
+    gap: 40px;
+}
+
+/* Cart Total Items */
+.cartitems-total-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+/* Checkout Button */
+.cartitems-total button {
+    width: 262px;
+    height: 58px;
+    outline: none;
+    border: none;
+    background: #000000;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    position: static;
+    margin-top: 20px; /* Add margin to push the button down */
+    
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.cartitems-total button:hover {
+    background-color: #333; /* Darken on hover */
+    transform: translateY(-10px); /* Lift effect on hover */
+}
+
+/* Promo Code Section */
+.cartitems-promocode {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Promo Code Description */
+.cartitems-promocode p {
+    color: #555;
+}
+
+/* Promo Code Input Box */
+.cartitems-promobox {
+    width: 504px;
+    margin-top: 15px;
+    padding-left: 20px;
+    height: 58px;
+    background: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.cartitems-promobox:hover {
+    background-color: #ddd; /* Darken on hover */
+}
+
+/* Promo Code Input Field */
+.cartitems-promobox input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    width: 330px;
+    height: 50px;
+    color: #333;
+}
+
+/* Apply Promo Code Button */
+.cartitems-promobox button {
+    width: 170px;
+    height: 58px;
+    font-size: 16px;
+    background: #000;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.cartitems-promobox button:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}

@@ -1,0 +1,39 @@
+.popular {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 90vh;
+    margin-bottom: 100px; /* Ensure consistency with .new-collections spacing */
+}
+
+.popular h1 {
+    color: #171717;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.popular hr {
+    width: 250px;
+    height: 6px;
+    border-radius: 10px;
+    background: #006aff;
+    border: none; /* Remove any default border */
+}
+
+/* Responsive Media Query */
+@media screen and (min-width: 768px) {
+    .popular hr {
+        width: 200px; /* Keep width consistent on larger screens */
+        height: 6px; /* Maintain height for a thicker line */
+        background: #006aff; /* Keep the color red */
+        border: none; /* Ensure no border is applied */
+    }
+}
+
+.popular-item {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Similar to collections layout */
+    gap: 30px;
+}
