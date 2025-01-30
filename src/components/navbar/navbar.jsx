@@ -3,8 +3,8 @@ import './Navbar.css';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../../context/UserAuthContext';
-import { ShopContext } from '../../context/ShopContext';
-import { useContext } from 'react';
+// import { ShopContext } from '../../context/ShopContext';
+// import { useContext } from 'react';
 import { 
     FaUser, 
     FaShoppingCart, 
@@ -20,7 +20,7 @@ import { useCart } from '../../context/CartContext';
 
 const Navbar = () => {
     const { user, logout } = useUserAuth();
-    const { getTotalCartItems } = useContext(ShopContext);
+    // const { getTotalCartItems } = useContext(ShopContext);
     const { getCartCount } = useCart();
     const cartCount = getCartCount();
     const [isScrolled, setIsScrolled] = useState(false);
