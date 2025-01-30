@@ -10,7 +10,7 @@ import men_banner from './components/assets/banner_mens.png';
 import women_banner from './components/assets/banner_women.png';
 import kids_banner from './components/assets/banner_kids.png';
 import ShopContextProvider from './context/ShopContext';
-import Collections from './components/Collections/Collections';
+import NewLaunches from './components/Collections/NewLaunches';
 import Thanks from './pages/Thanks';
 import React, { useState } from 'react';
 import { AuthProvider } from './context/AuthContext';
@@ -73,7 +73,7 @@ const App = () => {
                         <Route path='/' element={<Shop />} />
                         <Route path='/bats' element={<ShopCategory category="bats" banner={men_banner}/>} />
                         <Route path='/balls' element={<ShopCategory category="balls" banner={women_banner}/>} />
-                        <Route path="/new-collections" element={<Collections />} />
+                        <Route path="/new-collections" element={<NewLaunches />} />
                         <Route path='/kits' element={<ShopCategory category="kits" banner={kids_banner}/>} />
                         <Route path='/product/:productId' element={
                           <ErrorBoundary>

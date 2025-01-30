@@ -17,17 +17,12 @@ const Categories = () => {
             count: '30+ Products'
         },
         {
-            id: 'protection',
+            id: 'kits',
             name: 'Protection',
             description: 'Safety Equipment',
             count: '40+ Products'
         },
-        {
-            id: 'clothing',
-            name: 'Cricket Clothing',
-            description: 'Professional Wear',
-            count: '25+ Products'
-        }
+       
     ];
 
     return (
@@ -35,7 +30,7 @@ const Categories = () => {
             <h2>Shop By Category</h2>
             <div className="categories-container">
                 {categories.map((category) => (
-                    <Link to={`/category/${category.id}`} key={category.id} className="category-item">
+                    <Link to={`/${category.id}`} key={category.id} className="category-item">
                         <div className="category-content">
                             <h3>{category.name}</h3>
                             <p>{category.description}</p>
