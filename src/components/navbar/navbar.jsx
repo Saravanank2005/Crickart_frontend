@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
-import logo from '../assets/logo.png';
+
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../../context/UserAuthContext';
 import { ShopContext } from '../../context/ShopContext';
